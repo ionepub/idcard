@@ -209,12 +209,24 @@ class Idcard
 	/**
      * 给用户身份证号加*，用于输出数据
      * 规则：前4位 + N* + 后4位
-     * @param $idcard
-     * @TODO
+     * @access public
+     * @param string $seperate 过滤显示符，默认*
+     * @return string | false
      */
-    function formatOutputIdCardNo($idcard = ''){
-        $sublen = mb_strlen($idcard, 'UTF-8') - 8;
-        return mb_substr($idcard, 0, 4, 'UTF-8') . str_repeat('*', $sublen) . mb_substr($idcard, $sublen+4, null, 'UTF-8');
+    public function format($seperate = '*', $left = 4, $right = 4){
+		if(!$this->id){
+			return false;
+		}
+		
+		$left = intval($left) >= 0 ? intval($left) : 4;
+		$right = intval($right) >= 0 ? intval($right) : 4;
+
+		if($left + $right > 18){
+			return false;
+		}
+
+        $sublen = mb_strlen($this->id, 'UTF-8') - $left - $right;
+        return mb_substr($this->id, 0, $left, 'UTF-8') . str_repeat($seperate, $sublen) . mb_substr($this->id, $sublen+$left, null, 'UTF-8');
     }
 
 	/**
