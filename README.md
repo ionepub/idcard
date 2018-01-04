@@ -14,6 +14,18 @@ composer require --prefer-dist ionepub/idcard
 composer require ionepub/idcard:dev-master
 ```
 
+> tip
+
+如果`composer require ionepub/idcard`时报错：
+
+```
+[InvalidArgumentException]                                                   
+  Could not find package ionepub/idcard at any version for your minimum-stabi  
+  lity (stable). Check the package spelling or your minimum-stability
+```
+
+需要先执行一次 ` composer update nothing `，再执行require就可以了
+
 ### 直接下载
 
 下载地址：https://github.com/ionepub/idcard/releases/tag/1.0
