@@ -28,7 +28,7 @@ composer require ionepub/idcard:dev-master
 
 ### 直接下载
 
-下载地址：https://github.com/ionepub/idcard/releases/tag/1.0
+下载地址：https://github.com/ionepub/idcard/releases
 
 ## 使用
 
